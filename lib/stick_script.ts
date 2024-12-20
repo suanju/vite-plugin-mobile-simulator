@@ -1,9 +1,19 @@
+export interface MobileSimulatorConfig {
+    borderColor?: string;
+    backgroundColor?: string;
+    statusBarbackgroundColor?: string;
+    frameWidth?: number;
+    frameHeight?: number;
+};
+
+
 export function injectMobileSimulatorScript({
     borderColor = '#b0b0b0',
     backgroundColor = '#d6d6d6',
+    statusBarbackgroundColor = "#ffffff",
     frameWidth = 375,
     frameHeight = 767
-  } = {}) {
+}: MobileSimulatorConfig = {}) {
     const MOBILE_WIDTH = 768; // 移动端宽度阈值
 
     function setupMobileView() {
@@ -12,7 +22,6 @@ export function injectMobileSimulatorScript({
 
         // 检查是否已经生成模拟器
         if (document.querySelector('#mobile-wrapper')) return;
-
 
         // 创建 iframe
         const iframe = document.createElement('iframe');
@@ -32,10 +41,6 @@ export function injectMobileSimulatorScript({
         };
 
         const phoneFrameId = 'mobile-wrapper'
-        // const borderColor = '#b0b0b0'
-        // const backgroundColor = '#d6d6d6'
-        // const frameWidth = 375
-        // const frameHeight = 767
         // 创建手机外部边框容器
         const phoneFrame = document.createElement('div');
         phoneFrame.id = phoneFrameId;
@@ -92,7 +97,7 @@ export function injectMobileSimulatorScript({
           font-size: 12px;
           color: #bfbfbf;
           border-radius: 20px 20px 0px 0px;
-          background: rgb(255, 255, 255);
+          background: ${statusBarbackgroundColor};
       `;
 
         const time = document.createElement('span');
