@@ -1,0 +1,26 @@
+{
+  "name": "vite-plugin-mobile-simulator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "main": "./dist/vite-plugin-mobile-simulator.umd.cjs",
+  "module": "./dist/vite-plugin-mobile-simulator.js",
+  "types": "./index.d.ts",
+  "exports": {
+    "types": "./index.d.ts",
+    "import": "./dist/vite-plugin-mobile-simulator.js",
+    "require": "./dist/vite-plugin-mobile-simulator.umd.cjs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "vite": "^6.0.1"
+  }
+}
