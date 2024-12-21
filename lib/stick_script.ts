@@ -1,14 +1,16 @@
 export interface MobileSimulatorConfig {
+  mobileThreshold?: number;
+  frameWidth?: number;
+  frameHeight?: number;
   borderColor?: string;
   backgroundColor?: string;
   statusBarbackgroundColor?: string;
-  frameWidth?: number;
-  frameHeight?: number;
   bodyBarbackgroundColor?: string;
 };
 
 
 export function injectMobileSimulatorScript({
+  mobileThreshold = 768,
   frameWidth = 375,
   frameHeight = 767,
   borderColor = '#b0b0b0',
@@ -16,7 +18,6 @@ export function injectMobileSimulatorScript({
   statusBarbackgroundColor = "#ffffff",
   bodyBarbackgroundColor = '#ffffff',
 }: MobileSimulatorConfig = {}) {
-  const MOBILE_WIDTH = 768; // 移动端宽度阈值
 
   function setupMobileView() {
     // 检查是否已经在 iframe 中
@@ -49,7 +50,7 @@ export function injectMobileSimulatorScript({
     phoneFrame.style.cssText = `
           width: ${frameWidth}px;
           height: ${frameHeight}px;
-          padding: 10px; /* 边框距离较小 */
+          padding: 10px;
           box-sizing: border-box;
           border: 12px solid ${borderColor};
           border-radius: 40px;
@@ -217,7 +218,7 @@ export function injectMobileSimulatorScript({
   }
 
   function handleResize() {
-    const isPC = window.innerWidth > MOBILE_WIDTH;
+    const isPC = window.innerWidth > mobileThreshold;
     if (isPC) {
       setupMobileView();
     } else {

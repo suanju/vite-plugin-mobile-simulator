@@ -20,6 +20,37 @@ pnpm install vite-plugin-mobile-simulator -D
 - vite.config.ts 中的配置插件 (基础使用)
 
 ```ts
+import {
+  defineConfig
+} from 'vite'
+import vue from '@vitejs/plugin-vue'
+import mobileSimulatorPlugin from 'vite-plugin-mobile-simulator';
 
+export default defineConfig({
+  plugins: [vue(), mobileSimulatorPlugin()],
+})
+
+```
+
+- vite.config.ts 中的配置插件 (配置文件)
+
+```ts
+import {
+  defineConfig
+} from 'vite'
+import vue from '@vitejs/plugin-vue'
+import mobileSimulatorPlugin from 'vite-plugin-mobile-simulator';
+
+export default defineConfig({
+  plugins: [vue(), mobileSimulatorPlugin({
+    mobileThreshold: 768, // 手机阈值，当屏幕宽度小于该值时，显示手机模拟器
+    frameWidth: 375, // 框架宽度
+    frameHeight: 767, // 框架高度
+    borderColor: '#b0b0b0', // 边框颜色
+    backgroundColor: '#d6d6d6', // 背景颜色
+    statusBarbackgroundColor: "#ffffff", // 状态栏背景颜色
+    bodyBarbackgroundColor: '#ffffff', // 内容区域背景颜色
+  })],
+})
 
 ```
