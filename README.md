@@ -5,6 +5,12 @@
 
 - 如果您的项目为移动段项目没有做响应式布局，且PC端打开不太大程度影响使用体验，则可以使用本插件。将在浏览器上使用iframe的方式，实现PC端模拟移动端宽高比。
 
+## 演示
+
+demo 地址 [未使用 vite-plugin-mobile-simulator](https://suanju.github.io/vite-plugin-mobile-simulator-github-pages/original/#/)
+
+demo 地址 [使用后 vite-plugin-mobile-simulator](https://suanju.github.io/vite-plugin-mobile-simulator-github-pages/processing/#/)
+
 ## 安装 (yarn or npm)
 
 ```bash
